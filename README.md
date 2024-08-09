@@ -57,4 +57,5 @@ Watchdog received modified event with src_path - C:\Users\georgi.naumov\.ollama\
 Watchdog received deleted event with src_path - C:\Users\georgi.naumov\.ollama\history dest_path - .
 Watchdog received moved event with src_path - C:\Users\georgi.naumov\.ollama\history.tmp dest_path - C:\Users\georgi.naumov\.ollama\history.
 ```
-I hope this helps someone who is interested where logs are stored. 
+I hope this helps someone who is interested where logs are stored. If you need to run the script by yoursefl 
+you need to set a proper value of `WATCH_DIRECTORY_PATH` constant.
