@@ -4,6 +4,9 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from watchdog.events import FileSystemEvent
 
+# Here you must specify a valid path to ollama directory
+WATCH_DIRECTORY_PATH = r'C:\Users\georgi.naumov\.ollama'
+
 
 class OnMyWatch:
     # You must set the directory for watch in
@@ -36,7 +39,7 @@ class Handler(FileSystemEventHandler):
 
 
 def main():
-    watch = OnMyWatch(r'C:\Users\georgi.naumov\.ollama')
+    watch = OnMyWatch(WATCH_DIRECTORY_PATH)
     watch.run()
 
 
