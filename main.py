@@ -13,11 +13,11 @@ class OnMyWatch:
     # the constructor
     __watch_directory = None
 
-    def __init__(self, watch_directory_path):
+    def __init__(self, watch_directory_path: str):
         self.observer = Observer()
         self.__watch_directory = watch_directory_path
 
-    def run(self):
+    def run(self) -> None:
         event_handler = Handler()
         self.observer.schedule(event_handler, self.__watch_directory, recursive=True)
         self.observer.start()
@@ -33,8 +33,9 @@ class OnMyWatch:
 
 class Handler(FileSystemEventHandler):
     def on_any_event(self, event: FileSystemEvent) -> None:
-        event_type, src_path, dest_path = event.event_type, event.src_path, event.dest_path
-        message = f'Watchdog received {event_type} event with src_path - {src_path} dest_path - {dest_path}.'
+        event_type, src_path, dest_path, is_directory = event.event_type, event.src_path, event.dest_path, event.is_directory
+        directory_or_file = 'directory' if is_directory else 'file'
+        message = f'Watchdog received {event_type} {directory_or_file} event with src_path - {src_path} dest_path - {dest_path}.'
         print(message)
 
 
